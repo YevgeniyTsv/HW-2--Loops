@@ -169,13 +169,41 @@ const ninth = [1, 2, 18, 3, 38, 41, 0];
 // Есть строкa в переменной ninth!! Нужно пройтись циклом for и записать в переменную res строку со значением 2a1f3c1b
 // так как если обратить внимание то в строке 'aafcccb' символ а идет последовательно 2 раза далее f только один символ, символ с последовательно 3 раза
 // и символ b один раз
-const tenth = 'aafcccb';
-let res = '';
 
+console.log ("вывести кол-во символов aafcccb")
+
+const tenth = 'aafcccb';
+ let res = '';
+ for (let i = 0; i < tenth.length;) {
+     let charCounter = 1;
+     for (let j = i; tenth.charAt(j) === tenth.charAt(j + 1); j++) {
+         charCounter++;
+     }
+     res += charCounter + tenth.charAt(i);
+     i += charCounter;
+ }
+ console.log(res);
+
+ console.log ("*******************************************************")
+ 
 // ЗДЕСЬ ЕЩЕ ТЯЖЕЛЕЙ нужно подсчитать количество одинаковых символов в строке и при этом одинаковые символы не идут последовательно!!
 // то есть результат должен быть 4a3f4c
+
+console.log ("вывести кол-во символов aafcccffbaac")
 const eleventh = 'aafcccffbaac';
-let newRes = '';
+ let newRes = '';
+ for (let i = 0; i < eleventh.length; i++) {
+     let charCounter = 1;
+     if (newRes.indexOf(eleventh.charAt(i)) === -1) {
+         for (let j = i + 1; j < eleventh.length; j++) {
+             (eleventh.charAt(i) === eleventh.charAt(j)) ? charCounter++ : charCounter;
+         }
+         newRes += charCounter + eleventh.charAt(i);
+     }
+     continue;
+
+ }
+ console.log(newRes);
 
         
         
